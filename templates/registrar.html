@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Cadastro</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,7 +13,7 @@
             background-color: #f0f0f0;
             margin: 0;
         }
-        .login-box {
+        .registro-box {
             background: white;
             padding: 2rem;
             border-radius: 8px;
@@ -39,6 +39,10 @@
             color: red;
             text-align: center;
         }
+        .sucesso {
+            color: green;
+            text-align: center;
+        }
         a {
             display: block;
             text-align: center;
@@ -48,17 +52,20 @@
     </style>
 </head>
 <body>
-    <div class="login-box">
-        <h2>Login</h2>
-        <form action="/login" method="POST">
+    <div class="registro-box">
+        <h2>Criar conta</h2>
+        <form action="/registrar" method="POST">
             <input type="text" name="usuario" placeholder="Usuário" required>
             <input type="password" name="senha" placeholder="Senha" required>
-            <button type="submit">Entrar</button>
+            <button type="submit">Cadastrar</button>
         </form>
         {% if mensagem %}
             <p class="mensagem">{{ mensagem }}</p>
         {% endif %}
-        <a href="/registrar">Não tenho conta, criar uma</a>
+        {% if sucesso %}
+            <p class="sucesso">{{ sucesso }}</p>
+        {% endif %}
+        <a href="/">Já tenho conta, fazer login</a>
     </div>
 </body>
 </html>
